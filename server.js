@@ -1,7 +1,6 @@
 const Cron = require('cron').CronJob;
-let dayToRun = 4
-let seconds = '*';
-var job = new Cron({
+
+new Cron({
   cronTime: `* * * * * *`,
   onTick: function() {
     /*
@@ -18,15 +17,6 @@ var job = new Cron({
     // Run those searches (for loop/axios request)
 
   },
-  start: false,
+  start: true,
   timeZone: 'America/Los_Angeles'
 });
-function create() {
-  // post to db table
-  // db table returns tha dayToRun
-  job.start();
-  seconds = '*/3';
-
-}
-
-setTimeout(create, 3000);
